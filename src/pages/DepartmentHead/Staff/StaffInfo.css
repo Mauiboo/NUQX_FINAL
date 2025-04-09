@@ -46,6 +46,7 @@ nav.avatar {
 
 .staff-details h3 {
   margin: 10;
+  margin-top: 50px;
   font-size: 1.1em;
   font-weight: 700;
   color: #222;
@@ -55,15 +56,15 @@ nav.avatar {
   margin: 4px 0 0;
   font-size: 0.9em;
   color: gray;
+  margin-bottom: 80px;
 }
 
 .button-group {
   display: flex;
   gap: 10px; 
-  top: 60px; 
+  top: 50px; 
   right: 170px;
   position: relative;
-  
 }
 
 .button-group button {
