@@ -40,24 +40,22 @@ const ServiceForm = () => {
         maxLength={maxChars}
       />
       <div className="char-counter">{description.length}/{maxChars}</div>
-
-          <div className="button-group">
+      <div className="button-group">
           <button 
             className="submit-btn" 
             onClick={handleSubmit} 
-            style={{ borderRadius: '5px', }}
+            style={{ borderRadius: '5px', marginRight: '40px' }}
           >
             Submit
           </button>
           <button 
             className="clear-btn" 
             onClick={handleClear} 
-            style={{ borderRadius: '5px',  }}
+            style={{ borderRadius: '5px', marginRight: '20px' }}
           >
             Clear
-      </button>
-    </div>
-
+      </button> 
+      </div>
     </div>
   );
 };

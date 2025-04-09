@@ -63,6 +63,11 @@
     background: #f6f9ff; 
 }
 
+.sidebar-nav .nav-item:nth-child(4) {
+    margin-bottom: 10px; 
+}
+
+
 .sidebar-nav li:nth-child(5) { 
     margin-bottom: 25px; 
     position: relative; 

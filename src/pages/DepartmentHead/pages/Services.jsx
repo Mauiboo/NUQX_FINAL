@@ -26,9 +26,10 @@ const Services = () => {
     <div className="services-container">
       <ServiceForm />
 
- <div className="process-title">
-      <h2>Process </h2>
-    </div>
+      <div className="process-title" style={{ textAlign: 'right', marginLeft: '320px' }}>
+  <h2>Process</h2>
+</div>
+
 
       <div className="process-container">
         {[0, 1, 2, 3, 4].map((index) => (

@@ -34,19 +34,19 @@
 .view-button {
   display: flex;
   align-items: center;
+  justify-content: center; 
   top: 170px;
   right: 10px; 
   gap: 5px;
   border: 1px solid #35408E;
   padding: 6px 12px;
-  height: 50px;
+  height: 45px;
   margin-right: 290px;
-  background:  white;
+  background: white;
   color: #35408E;
-  position: fixed; 
+  position: fixed;
   width: 110px;
 }
-
 
 .view-button:hover {
   background:  #35408E;
@@ -61,7 +61,7 @@
   gap: 5px;
   border: 1px solid #35408E;
   padding: 6px 12px;
-  height: 50px;
+  height: 45px;
   margin-right: 160px;
   background:  white;
   color: #35408E;

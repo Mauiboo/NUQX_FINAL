@@ -5,7 +5,8 @@
   gap: 10px;
   margin-top: 160px; 
   margin-right: 400px;
-  
+  position: fixed;
+  width: 500px;
 }
 
 .button-group {
@@ -33,12 +34,12 @@
   color: #2D2D75; 
 }
 
-
 .process-title h2{
   margin-top: 0px;
   color: #2D2D75;
   font-size: 22px; 
-  margin-right: 490px;
+  margin-right: 500px;
+  position: absolute;
 }
 
 .custom-dropdown {
@@ -62,8 +63,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   height: 350px;
-  margin-top: 0px;
-  margin-right: 100px;
+  margin-top: 450px;
+  margin-right: -800px;
+  position: fixed; 
+
 }
 
 
