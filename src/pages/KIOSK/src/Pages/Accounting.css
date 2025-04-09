@@ -1,0 +1,47 @@
+.accounting-content {
+    text-align: center;
+    margin-top: -850px; 
+  }
+  
+  .accounting-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .accounting-subtitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  .accounting-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .accounting-button {
+    background-color: #35408E;
+    color: white;
+    border: none;
+    padding: 30px 40px;
+    margin: 0 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 200px; 
+    height: 150px; 
+  }
+  
+  .accounting-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .accounting-button-text {
+    font-size: 20px;
+  }
+
+  

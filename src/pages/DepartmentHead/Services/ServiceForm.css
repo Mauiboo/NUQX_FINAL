@@ -1,0 +1,47 @@
+.service-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 110px;
+    margin-top: 20px;
+    height: 350px;
+  }
+  
+  .form-title {
+    font-size: 22px;
+    color: #2D2D75;
+    margin-bottom: 10px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 5px;
+  }
+  
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+    resize: none;
+  }
+  
+  .char-counter {
+    font-size: 12px;
+    color: #666;
+    text-align: right;
+  }
+  
