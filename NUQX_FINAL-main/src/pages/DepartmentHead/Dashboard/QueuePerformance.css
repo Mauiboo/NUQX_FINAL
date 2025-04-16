@@ -1,0 +1,93 @@
+.dashboard-header {
+  background-color: #35408e;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  padding: 15px;
+  border-radius: 12px;
+  position: absolute;
+  top: 150px; 
+  left: 58%;
+  transform: translateX(-50%); 
+  width: 80%; 
+  border: 2px solid black; 
+}
+
+.queue-analysis {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.peak-hour {
+  background-color: #35408e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 22px;
+  position: absolute;
+  top: 290px; 
+  left: 345px; 
+  border: 2px solid black; 
+}
+
+.peak-hour .time {
+  font-size: 30px;
+  margin-right: 10px;
+  padding: 5px 12px;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.metrics-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+  margin-top: 20px;
+}
+
+.metric-card {
+  margin: 20px; 
+  width: 350px;
+  height: 350px;
+  background-color: #35408e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 360px;
+  right: -140px;
+  border: 2px solid black; 
+}
+
+.metric-container {
+  position: relative;
+  text-align: center;
+}
+
+.metric-icon {
+  position: absolute;
+  top: -60px; 
+  left: 90%;
+  transform: translateX(-50%);
+}
+
+.metric-value {
+  font-size: 70px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.metric-label {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 5px;
+}
