@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'ClanOT Medium';
+  src: local('ClanOT Medium');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClanOT Book';
+  src: local('ClanOT Book');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClanOT Bold';
+  src: local('ClanOT Bold');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'ClanOT Medium', sans-serif;
+  overflow: hidden;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.header {
+  background-color: #35408E;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 90px;
+  margin-right: 10px;
+}
+
+.header-title {
+  color: #FFFFFF;
+  font-size: 35px;
+  font-family: 'ClanOT Medium', sans-serif;
+}
+
+.yellow-line {
+  background-color: #FFD41C;
+  height: 8px;
+  width: 100%;
+}
+
+.yellow-line1 {
+  background-color: #FFD41C;
+  height: 8px;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  padding: 15px;
+  overflow: hidden;
+  height: calc(100vh - 166px);
+}
+
+.queue-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.left-section {
+  width: 46%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section {
+  width: 46%;
+  height: 100%;
+  padding: 0 0 0 25px;
+  position: relative;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Add vertical line with spacing */
+.right-section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 4px;
+  background-color: #35408E;
+}
+
+.serving-box {
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-align: center;
+  width: 90%;
+}
+
+.serving-header {
+  background-color: #35408E;
+  color: white;
+  font-size: 28px;
+  padding: 8px;
+  text-align: center;
+  font-family: 'ClanOT Bold', sans-serif;
+}
+
+.serving-content {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proceed-text {
+  color: #FF0202;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: 'ClanOT Medium', sans-serif;
+}
+
+.window-box {
+  border: 2px solid #35408E;
+  border-radius: 10px;
+  padding: 4px 12px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: 'ClanOT Medium', sans-serif;
+  font-size: 26px;
+  min-width: 180px;
+}
+
+.window-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  height: 25%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.queue-number {
+  font-size: 65px;
+  color: #35408E;
+  font-family: 'ClanOT Bold', sans-serif;
+  margin-top: 5px;
+  line-height: 1;
+}
+
+/* Style for horizontal dividers with better spacing */
+.horizontal-divider {
+  height: 4px;
+  background-color: #35408E;
+  width: 85%;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.footer {
+  background-color: #35408E;
+  height: 70px;
+}
+    
