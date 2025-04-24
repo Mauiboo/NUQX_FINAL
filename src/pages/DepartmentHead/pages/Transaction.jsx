@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaClipboardList, FaEdit, FaTimes } from "react-icons/fa";
-import "./Transaction.css"; 
+import "./Transaction.css";
 
 const Transaction = () => {
   const [transactions, setTransactions] = useState([]);
@@ -13,6 +13,19 @@ const Transaction = () => {
     dateCreated: "",
     priorityList: "Not Priority",
   });
+
+  useEffect(() => {
+    const savedTransactions = localStorage.getItem("transactions");
+    if (savedTransactions) {
+      setTransactions(JSON.parse(savedTransactions));
+    }
+  }, []);
+  
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
+
 
   const generateId = (name) => {
     const words = name.split(" ").filter((word) => word.length > 0);
@@ -111,12 +124,21 @@ const Transaction = () => {
             <h3 className="card-title">Transactions</h3>
             <div className="toggle">
               <input type="checkbox" id={`toggle-${transaction.id}`} />
-              <label htmlFor={`toggle-${transaction.id}`} className="toggle-label"></label>
+              <label htmlFor={`toggle-${transaction.id}`} className="toggle-label">
+                <span className="label-on">ON</span>
+                <span className="label-off">OFF</span>
+              </label>
             </div>
-            <p><strong>ID:</strong> {transaction.id}</p>
-            <p><strong>Name:</strong> {transaction.name}</p>
-            <p><strong>Date Created:</strong> {transaction.dateCreated}</p>
-            <p><strong>Priority List:</strong> {transaction.priorityList}</p>
+            <p style={{ fontSize: "20px" }}><strong>ID:</strong> {transaction.id}</p>
+            <p style={{ fontSize: "20px" }}><strong>Name:</strong> {transaction.name}</p>
+            <p style={{ fontSize: "20px" }}><strong>Date Created:</strong> {transaction.dateCreated}</p>
+            <p style={{ fontSize: "20px" }}>
+              <strong>Priority List:</strong>{" "}
+              <span style={{ color: transaction.priorityList === "Priority" ? "red" : "black" }}>
+                {transaction.priorityList}
+              </span>
+            </p>
+
             <button className="edit-button" onClick={() => handleEdit(transaction)}>
               <FaEdit /> Edit
             </button>
@@ -139,9 +161,10 @@ const Transaction = () => {
               onChange={handleInputChange}
               className="input"
             />
-            <p><strong>Date Created:</strong> {new Date().toISOString().split("T")[0]}</p>
+            <p style={{ fontSize: "20px", marginTop: "15px" }}>
+              <strong>Date Created:</strong> {new Date().toISOString().split("T")[0]}
+            </p>
             <div className="priority">
-              <label className="priority-label"></label>
               <input
                 type="radio"
                 id="priority"
@@ -151,7 +174,7 @@ const Transaction = () => {
                 onChange={() => handlePriorityChange("Priority")}
                 className="priority-radio"
               />
-              <label htmlFor="priority">Priority</label>
+              <label htmlFor="priority" className="priority-text">Priority</label>
               <input
                 type="radio"
                 id="notPriority"
@@ -161,7 +184,7 @@ const Transaction = () => {
                 onChange={() => handlePriorityChange("Not Priority")}
                 className="priority-radio"
               />
-              <label htmlFor="notPriority">Not Priority</label>
+              <label htmlFor="notPriority" className="priority-text">Not Priority</label>
             </div>
             <div className="modal-buttons">
               <button

@@ -16,6 +16,8 @@ const Login = () => {
       navigate("/staff/manage-queue");
     } else if (email === "student_guest@kiosk.national-u.edu.ph" && password === "1234") {
       navigate("/kiosk");
+    } else if (email === "monitor@display.national-u.edu.ph" && password === "1234") {
+      navigate("/monitordisplay");
     } else if (email === "petrovak@departmenthead.national-u.edu.ph" && password === "1234") {
       navigate("/departmenthead/dashboard");
     } else {

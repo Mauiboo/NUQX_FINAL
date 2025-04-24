@@ -245,25 +245,26 @@ function Reports() {
       }}>
         <div className="reports-header" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
           <div className="time-period-selector">
-            <select 
-              value={timePeriod}
-              onChange={(e) => setTimePeriod(e.target.value)}
-              style={{ 
-                padding: '0.5rem 1rem',  
-                color: '#35408E',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                width: '200px',
-                marginLeft: '0',
-                position: 'relative',
-                top: '35px', 
-              }}
-            >
-              <option value="Today">Today</option>
-              <option value="This Week">This Week</option>
-              <option value="This Month">This Month</option>
-              <option value="This Year">This Year</option>
-            </select>
+          <select
+  value={timePeriod}
+  onChange={(e) => setTimePeriod(e.target.value)}
+  style={{
+    padding: '0.5rem 1rem',
+    color: 'white', // Changed font color to white
+    backgroundColor: '#35408E', // Changed background color to blue (using your existing blue)
+    cursor: 'pointer',
+    width: '200px',
+    marginLeft: '0',
+    position: 'relative',
+    top: '35px',
+    // Add any other styles you might need
+  }}
+>
+  <option value="Today">Today</option>
+  <option value="This Week">This Week</option>
+  <option value="This Month">This Month</option>
+  <option value="This Year">This Year</option>
+</select>
           </div>
 
           {/* Summary Boxes */}
@@ -359,6 +360,7 @@ function Reports() {
 
       {isDialogOpen && <Dialog onClose={() => setIsDialogOpen(false)} />}
       <DownloadButton />
+
     </div>
   );
 }

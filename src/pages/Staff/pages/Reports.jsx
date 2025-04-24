@@ -248,16 +248,16 @@ function Reports() {
             <select 
               value={timePeriod}
               onChange={(e) => setTimePeriod(e.target.value)}
-              style={{ 
-                padding: '0.5rem 1rem',  
-                color: '#35408E',
-                backgroundColor: 'white',
+              style={{
+                padding: '0.5rem 1rem',
+                color: 'white', 
+                backgroundColor: '#35408E', 
                 cursor: 'pointer',
                 width: '200px',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                 marginLeft: '0',
                 position: 'relative',
-                top: '35px', 
+                top: '35px',
+                
               }}
             >
               <option value="Today">Today</option>
