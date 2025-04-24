@@ -10,8 +10,6 @@ import SideBar from './components/SideBar';
 import Reports from './pages/Reports';
 import Managequeue from './pages/Managequeue';
 import Settings from './pages/Settings';
-import { SomeIcon } from 'lucide-react';
-import { RiSomeIcon } from 'react-icons/ri';
 import NULogo from "../../../src/images/NULogo.png";
 import userImage from "../../../src/images/user.png";
 import { RiEyeLine, RiEyeOffLine, RiCameraLine } from "react-icons/ri";
@@ -20,14 +18,16 @@ function StaffApp() {
   const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(true);
   const [windowNumber, setWindowNumber] = useState('');
-  const [inputText, setInputText] = useState('');
+  const [selectedWindow, setSelectedWindow] = useState('');
+
+  const windowOptions = [1, 2, 3, 4, 5]; 
 
   useEffect(() => {
     setShowDialog(true);
   }, []);
 
   const handleConfirm = () => {
-    setWindowNumber(inputText);
+    setWindowNumber(selectedWindow);
     setShowDialog(false);
     navigate('/staff/managequeue');
   };
@@ -39,8 +39,7 @@ function StaffApp() {
         <div className='absolute inset-0 bg-white opacity-100' />
       </div>
 
-      {showDialog ? (
-        // Window Number Dialog
+      {showDialog && (
         <div style={{
           position: 'fixed',
           top: 0,
@@ -51,89 +50,96 @@ function StaffApp() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          zIndex: 1000,
+          zIndex: 1000
         }}>
           <div style={{
             backgroundColor: 'white',
             padding: '30px',
-            borderRadius: '5px',
+            borderRadius: '10px',
             boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
-            width: '400px',
-            fontFamily: 'Clan OT, sans-serif',
-            position: 'relative',
-            overflow: 'visible',
-            display: 'flex',
-            flexDirection: 'column'
+            width: '400px',  
+            fontFamily: 'Clan OT, sans-serif'
           }}>
-            <div style={{ color: '#35408E', fontSize: '40px', marginBottom: '5px', marginLeft: '30px' }}>Enter your</div>
-            <div style={{ color: '#35408E', fontSize: '40px', marginBottom: '5px', marginLeft: '30px' }}>Window</div>
-            <div style={{ color: '#35408E', fontSize: '40px', marginBottom: '20px', marginLeft: '30px' }}>Number</div>
-            <input 
-              type="text" 
-              value={inputText} 
-              onChange={(e) => setInputText(e.target.value)}
-              style={{ 
-                width: '80%',
-                height: '40px', 
-                fontSize: '20px', 
-                border: '2px solid #35408E',
-                marginBottom: '60px',
-                padding: '5px 10px',
-                boxSizing: 'border-box',
-                borderRadius: '10px',
-                alignSelf: 'center',
-                textAlign: 'center'
-              }} 
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  handleConfirm();
-                }
-              }}
-            />
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'flex-end',
-              marginTop: '-30px',
-              marginRight: '40px'
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
             }}>
+              <h2 style={{ fontSize: '22px', color: '#35408E' }}>Select Window Number</h2>
+              <img src={NULogo} alt="NU Logo" style={{ height: '50px', width: 'auto' }} />
+            </div>
+            <div style={{ marginTop: '20px' }}>
+              <label htmlFor="window-select" style={{ fontSize: '16px', color: '#35408E', marginBottom: '10px', display: 'block' }}>Choose Window Number:</label>
+              <select 
+                id="window-select" 
+                value={selectedWindow} 
+                onChange={(e) => setSelectedWindow(e.target.value)} 
+                style={{
+                  width: '100%',
+                  height: '40px', 
+                  fontSize: '18px', 
+                  padding: '8px',
+                  border: '2px solid #35408E',
+                  borderRadius: '10px',
+                  marginTop: '10px'
+                }}
+              >
+                <option value="">Select a window number</option>
+                {windowOptions.map((num) => (
+                  <option key={num} value={num}>Window {num}</option>
+                ))}
+              </select>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '25px' }}>
               <button 
-                onClick={handleConfirm}
-                style={{ 
+                style={{
                   backgroundColor: 'transparent',
-                  color: '#35408E', 
+                  color: '#35408E',
                   border: 'none',
-                  padding: '8px 16px',
-                  fontSize: '25px',
-                  fontFamily: 'Clan OT, sans-serif',
+                  padding: '10px 20px',
+                  fontSize: '18px', 
                   cursor: 'pointer',
                   borderRadius: '20px',
-                  transition: 'background-color 0.3s',
-                  width: '80px',
-                  textAlign: 'center'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#35408E40'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                  width: '45%' 
+                }} 
+                onClick={() => setSelectedWindow('')}
               >
-                OK
+                Clear
+              </button>
+              <button 
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#35408E',
+                  border: 'none',
+                  padding: '10px 20px',
+                  fontSize: '18px', 
+                  cursor: 'pointer',
+                  borderRadius: '20px',
+                  width: '45%',
+                  opacity: selectedWindow ? '1' : '0.5',
+                  pointerEvents: selectedWindow ? 'auto' : 'none'
+                }} 
+                onClick={handleConfirm}
+              >
+                Submit
               </button>
             </div>
           </div>
         </div>
-      ) : (
-        // Show the full app with Routes
-        <>
-          <Header />
-          <SideBar />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Navigate to="/staff/managequeue" />} />
-              <Route path="/managequeue" element={<Managequeue windowNumber={windowNumber} />} />
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/settings" element={<Settings />} />
-            </Routes>
-          </main>
-        </>
       )}
+        
+      <>
+        <Header />
+        <SideBar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Navigate to="/staff/managequeue" />} />
+            <Route path="/managequeue" element={<Managequeue windowNumber={windowNumber} />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </main>
+      </>
     </div>
   );
 }

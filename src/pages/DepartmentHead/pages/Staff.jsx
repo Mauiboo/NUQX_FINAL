@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Search, BadgeCheck, Filter, UserPlus } from "lucide-react";
 import AddUser from "../Staff/AddUser";
 import StaffInfo from "../Staff/StaffInfo"; 
-import "./Staff.css";
 import userImage from "../../../images/user.png";
 
 const staffData = [
@@ -37,19 +36,116 @@ const Staff = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate(); 
 
+  const styles = {
+    staffContainer: {
+      display: "flex",
+      alignItems: "center",
+      gap: "15px",
+      padding: "10px",
+    },
+    searchBox: {
+      position: "fixed",
+      display: "flex",
+      alignItems: "center",
+      top: "175px",
+      left: "1280px",
+    
+    },
+    searchInput: {
+      padding: "8px 12px",
+      paddingRight: "30px",
+      border: "1px solid #35408E",
+      borderRadius: "20px",
+      outline: "none",
+      width: "200px",
+      fontSize: "14px",
+    },
+    searchIcon: {
+      position: "absolute",
+      right: "10px",
+      color: "#35408E",
+      cursor: "pointer",
+    },
+    buttonContainer: {
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+      gap: "10px",
+      width: "100%",
+    },
+    viewButton: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      top: "170px",
+      right: "10px",
+      gap: "5px",
+      border: "1px solid #35408E",
+      padding: "6px 12px",
+      height: "45px",
+      marginRight: "290px",
+      background: "white",
+      color: "#35408E",
+      position: "fixed",
+      width: "110px",
+    },
+    viewButtonHover: {
+      background: "#35408E",
+      color: "white",
+    },
+    sortButton: {
+      display: "flex",
+      alignItems: "center",
+      top: "170px",
+      right: "10px",
+      gap: "5px",
+      border: "1px solid #35408E",
+      padding: "6px 12px",
+      height: "45px",
+      marginRight: "160px",
+      background: "white",
+      color: "#35408E",
+      position: "fixed",
+      width: "110px",
+    },
+    sortButtonHover: {
+      background: "#35408E",
+      color: "white",
+    },
+    userIcon: {
+      color: "#35408E",
+      cursor: "pointer",
+      position: "fixed",
+      top: "175px",
+      right: "110px",
+      zIndex: "999",
+    },
+  };
+
+  
+
   return (
-    <div className="staff-container">
-      <div className="search-box">
-        <input type="text" placeholder="Search users" className="search-input" />
-        <Search className="search-icon" size={18} />
+    <div style={styles.staffContainer}>
+
+    <style>
+      {`
+        input::placeholder {
+          color: black;
+        }
+      `}
+    </style>
+
+      <div style={styles.searchBox}>
+        <input type="text" placeholder="Search users" style={styles.searchInput} />
+        <Search style={styles.searchIcon} size={18} />
       </div>
 
-      <div className="button-container">
-        <button className="view-button">
+      <div style={styles.buttonContainer}>
+        <button style={styles.viewButton}>
           <BadgeCheck size={18} />
           View
         </button>
-        <button className="sort-button">
+        <button style={styles.sortButton}>
           <Filter size={18} />
           Sort By
         </button>
@@ -57,7 +153,7 @@ const Staff = () => {
 
       <StaffInfo staff={staffData} onEdit={(id) => navigate(`/staff/edit/${id}`)} />
 
-      <UserPlus className="user-icon" size={35} onClick={() => setIsModalOpen(true)} />
+      <UserPlus style={styles.userIcon} size={35} onClick={() => setIsModalOpen(true)} />
 
       {isModalOpen && <AddUser onClose={() => setIsModalOpen(false)} />}
     </div>

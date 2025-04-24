@@ -1,16 +1,20 @@
-import React from 'react'
-import './nav.css';
+import React from 'react';
 import NavAvatar from './NavAvatar';
 
 function Nav() {
+  const navStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: 'auto',
+  };
+
   return (
-      <nav className = "header-nav ms-auto">
-<ul className="d-flex align-items-center">
-   
-    <NavAvatar/>
-</ul>
-      </nav>
-  )
+    <nav style={navStyle}>
+      <ul style={{ display: 'flex', alignItems: 'center' }}>
+        <NavAvatar />
+      </ul>
+    </nav>
+  );
 }
 
-export default Nav
+export default Nav;

@@ -55,13 +55,5 @@ h6 {
     src: url('../../../src/assets/fonts/ClanOT-NarrowMedium.otf') format('opentype');
 }
 
-.main-content {
-  margin-left: 280px;
-  margin-top: 60px;  
-  padding: 20px;
-  width: calc(100% - 280px);
-  height: calc(100vh - 60px);
-  overflow-y: auto;
-  position: relative;
-  z-index: 1;
-}
+
+  

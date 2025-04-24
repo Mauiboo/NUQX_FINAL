@@ -254,7 +254,6 @@ function Reports() {
                 backgroundColor: 'white',
                 cursor: 'pointer',
                 width: '200px',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                 marginLeft: '0',
                 position: 'relative',
                 top: '35px', 

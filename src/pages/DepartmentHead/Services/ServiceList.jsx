@@ -7,40 +7,45 @@ const ServicesList = () => {
   ];
 
   return (
-    <div className="services-list">
-      <h4>Services</h4>
-      <table>
-          <tr>
-            <th>Process ID</th>
-            <th>Process Name</th>
-          </tr> 
-        <tbody>
-          {services.map((service, index) => (
-            <tr key={index}>
-              <td>{service.id}</td>
-              <td>{service.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table> 
+    <div className="services-list" style={{ color: "black" }}>
+  <h4 style={{ color: "black" }}>Services</h4>
+  <table>
+    <thead>
+      <tr>
+        <th style={{ color: "white" }}>Process ID</th>
+        <th style={{ color: "white" }}>Process Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {services.map((service, index) => (
+        <tr key={index}>
+          <td style={{ color: "black" }}>{service.id}</td>
+          <td style={{ color: "black" }}>{service.name}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 
-      <table>
-          <tr>
-            <th>Department Name</th>
-            <th>Process Request</th>
-          </tr>
-        <tbody>
-          <tr>
-            <td>Registrar</td>
-            <td>Transcript Request</td>
-          </tr>
-          <tr>
-            <td>Library</td>
-            <td>Book Borrowing</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
+  <table>
+    <thead>
+      <tr>
+        <th style={{ color: "white" }}>Department Name</th>
+        <th style={{ color: "white" }}>Process Request</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style={{ color: "black" }}>Registrar</td>
+        <td style={{ color: "black" }}>Transcript Request</td>
+      </tr>
+      <tr>
+        <td style={{ color: "black" }}>Library</td>
+        <td style={{ color: "black" }}>Book Borrowing</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
   );
 };
 

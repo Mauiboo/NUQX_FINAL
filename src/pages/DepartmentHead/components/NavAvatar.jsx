@@ -1,19 +1,62 @@
 import React from 'react';
 import profileImg from '../../../../src/images/user.png';
-import './nav.css'; 
 
 function NavAvatar() {
+  const containerStyle = {
+    display: 'flex',
+    backgroundColor: '#35408E',
+    color: 'white',
+    width: '300px',
+    padding: '15px',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  };
+
+  const imageStyle = {
+    width: '70px',
+    height: '70px',
+    borderRadius: '50%',
+    border: '2px solid white',
+    objectFit: 'cover',
+    marginBottom: '-15px',
+    marginRight: '30px',
+  };
+
+  const textInfoStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'right',
+    justifyContent: 'center',
+    margin: '-0px',
+    marginBottom: '-15px',
+  };
+
+  const nameStyle = {
+    fontSize: '1.2rem',
+    fontWeight: '200',
+    color: 'white',
+    margin: '0',
+    textAlign: 'right',
+  };
+
+  const titleStyle = {
+    fontSize: '1rem',
+    color: 'white',
+    margin: '0',
+    textAlign: 'right',
+  };
+
   return (
-    <div className="nav-avatar-container">
-    <div className="text-info" style={{ textAlign: 'center', marginBottom: '-30px' }}>
-      <div className="nav-avatar-name">Klaus Mikaelson</div>
-      <div className="nav-avatar-title">Head Department</div>
-    </div>
+    <div style={containerStyle}>
+      <div style={textInfoStyle}>
+        <div style={nameStyle}>Klaus Mikaelson</div>
+        <div style={titleStyle}>Head Department</div>
+      </div>
 
       <img
         src={profileImg}
         alt="Profile"
-        className="nav-avatar-img"
+        style={imageStyle}
       />
     </div>
   );

@@ -1,27 +1,45 @@
 import React from 'react';
-import './logo.css'; 
 import profileImg from '../../../../src/images/NULogo.png';
 
 function Logo() {
-    const handleToggleSideBar = () => {
-        document.body.classList.toggle('toggle-sidebar');
-    };
+  const handleToggleSideBar = () => {
+    document.body.classList.toggle('toggle-sidebar');
+  };
 
-    return (
-        <div className="d-flex align-items-center justify-content-between">
-            <div className="logo d-flex align-items-center">
-                <img
-                    src={profileImg}
-                    alt="NU Logo"
-                    className="h-[60px] w-auto" 
-                />
-              <h1 className="logo-text">
-                NUQX
-                </h1>
-            </div>
-            
-        </div>
-    );
+  const logoStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    lineHeight: 1,
+  };
+
+  const logoTextStyle = {
+    color: 'white',
+    lineHeight: 1.1,
+    fontSize: '35px',
+    margin: '0',
+    fontWeight: '200',
+  };
+
+  const imageStyle = {
+    maxHeight: '100px',
+    marginRight: '6px',
+  };
+
+  return (
+    <div style={logoStyle}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img
+          src={profileImg}
+          alt="NU Logo"
+          style={imageStyle}
+        />
+        <h1 style={logoTextStyle}>
+          NUQX
+        </h1>
+      </div>
+    </div>
+  );
 }
 
 export default Logo;

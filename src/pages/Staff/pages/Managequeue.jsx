@@ -1,12 +1,9 @@
 import React from 'react';
 
 function Managequeue({ windowNumber }) {
-  // Add useEffect to prevent body scrolling
   React.useEffect(() => {
-    // Disable scrolling on body
     document.body.style.overflow = 'hidden';
     
-    // Re-enable scrolling when component unmounts
     return () => {
       document.body.style.overflow = 'auto';
     };

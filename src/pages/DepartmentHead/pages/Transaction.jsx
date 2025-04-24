@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { FaClipboardList, FaEdit, FaTimes } from "react-icons/fa";
-import "./Transaction.css";
+import "./Transaction.css"; 
 
 const Transaction = () => {
   const [transactions, setTransactions] = useState([]);
-
   const [isAdding, setIsAdding] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editingTransaction, setEditingTransaction] = useState(null);
@@ -12,7 +11,7 @@ const Transaction = () => {
   const [newTransaction, setNewTransaction] = useState({
     name: "",
     dateCreated: "",
-    priorityList: "Low",
+    priorityList: "Not Priority",
   });
 
   const generateId = (name) => {
@@ -30,9 +29,7 @@ const Transaction = () => {
     return initials.toUpperCase();
   };
 
-  const handleAdd = () => {
-    setIsAdding(true);
-  };
+  const handleAdd = () => setIsAdding(true);
 
   const handleEdit = (transaction) => {
     setIsEditing(true);
@@ -40,16 +37,11 @@ const Transaction = () => {
   };
 
   const handleSaveEdit = () => {
-    const updatedTransactions = transactions.map((t) => {
-      if (t.id === editingTransaction.id) {
-        return {
-          ...editingTransaction,
-          id: generateId(editingTransaction.name),
-        };
-      }
-      return t;
-    });
-
+    const updatedTransactions = transactions.map((t) =>
+      t.id === editingTransaction.id
+        ? { ...editingTransaction, id: generateId(editingTransaction.name) }
+        : t
+    );
     setTransactions(updatedTransactions);
     setIsEditing(false);
     setEditingTransaction(null);
@@ -74,161 +66,117 @@ const Transaction = () => {
 
   const handleAddTransaction = () => {
     const newId = generateId(newTransaction.name);
+    const currentDate = new Date().toISOString().split("T")[0];
+
     setTransactions([
       ...transactions,
       {
         id: newId,
         ...newTransaction,
+        dateCreated: currentDate,
       },
     ]);
 
     setIsAdding(false);
-    setNewTransaction({
-      name: "",
-      dateCreated: "",
-      priorityList: "Low",
-    });
+    setNewTransaction({ name: "", dateCreated: "", priorityList: "Not Priority" });
   };
 
   const handleCancel = () => {
+    setNewTransaction({ name: "", dateCreated: "", priorityList: "Not Priority" });
+    setEditingTransaction(null);
+  };
+
+  const handleCloseModal = () => {
     setIsAdding(false);
     setIsEditing(false);
-    setEditingTransaction(null);
+  };
+
+  const handleClearFields = () => {
+    if (isAdding) {
+      setNewTransaction({ name: "", dateCreated: "", priorityList: "Not Priority" });
+    } else if (isEditing && editingTransaction) {
+      setEditingTransaction({ ...editingTransaction, name: "" });
+    }
   };
 
   return (
     <div className="container">
-      <button className="addButton" onClick={handleAdd}>
+      <button className="add-button" onClick={handleAdd}>
         <FaClipboardList />
       </button>
 
-      <div className="transactionContainer">
+      <div className="transaction-container">
         {transactions.map((transaction) => (
-          <div key={transaction.id} className="transactionCard">
-            <div className="transactionCardContent">
-              <h3 className="cardTitle">Transactions</h3>
-              <div className="toggle">
-                <input type="checkbox" id={`toggle-${transaction.id}`} />
-                <label htmlFor={`toggle-${transaction.id}`}></label>
-              </div>
-              <p><strong>ID:</strong> {transaction.id}</p>
-              <p><strong>Name:</strong> {transaction.name}</p>
-              <p><strong>Date Created:</strong> {transaction.dateCreated}</p>
-              <p><strong>Priority List:</strong> {transaction.priorityList}</p>
+          <div key={transaction.id} className="transaction-card">
+            <h3 className="card-title">Transactions</h3>
+            <div className="toggle">
+              <input type="checkbox" id={`toggle-${transaction.id}`} />
+              <label htmlFor={`toggle-${transaction.id}`} className="toggle-label"></label>
             </div>
-            <button className="editButton" onClick={() => handleEdit(transaction)}>
+            <p><strong>ID:</strong> {transaction.id}</p>
+            <p><strong>Name:</strong> {transaction.name}</p>
+            <p><strong>Date Created:</strong> {transaction.dateCreated}</p>
+            <p><strong>Priority List:</strong> {transaction.priorityList}</p>
+            <button className="edit-button" onClick={() => handleEdit(transaction)}>
               <FaEdit /> Edit
             </button>
           </div>
         ))}
       </div>
 
-      {isAdding && (
+      {(isAdding || isEditing) && (
         <div className="modal">
-          <div className="modalContent">
-            <div className="modalHeader">
-              <h2 className="modalTitle">Add Transaction</h2>
-              <button className="closeButton" onClick={handleCancel}>
-                <FaTimes />
-              </button>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2 className="modal-title">{isAdding ? "Add Transaction" : "Edit Transaction"}</h2>
+              <button className="close-button" onClick={handleCloseModal}><FaTimes /></button>
             </div>
             <input
               type="text"
               name="name"
-              placeholder="Name"
-              value={newTransaction.name}
+              placeholder="Transaction Name"
+              value={isAdding ? newTransaction.name : editingTransaction?.name}
               onChange={handleInputChange}
               className="input"
             />
-            <input
-              type="text"
-              name="dateCreated"
-              placeholder="Date Created"
-              value={newTransaction.dateCreated}
-              onChange={handleInputChange}
-              className="input"
-            />
+            <p><strong>Date Created:</strong> {new Date().toISOString().split("T")[0]}</p>
             <div className="priority">
-              <label style={{ fontSize: "16px" }}>Priority Status:</label>
-              <button
-                className={
-                  newTransaction.priorityList === "High"
-                    ? "priorityButtonActive"
-                    : "priorityButton"
-                }
-                onClick={() => handlePriorityChange("High")}
-              >
-                High
-              </button>
-              <button
-                className={
-                  newTransaction.priorityList === "Low"
-                    ? "priorityButtonActive"
-                    : "priorityButton"
-                }
-                onClick={() => handlePriorityChange("Low")}
-              >
-                Low
-              </button>
+              <label className="priority-label"></label>
+              <input
+                type="radio"
+                id="priority"
+                name="priority"
+                value="Priority"
+                checked={(isAdding ? newTransaction.priorityList : editingTransaction?.priorityList) === "Priority"}
+                onChange={() => handlePriorityChange("Priority")}
+                className="priority-radio"
+              />
+              <label htmlFor="priority">Priority</label>
+              <input
+                type="radio"
+                id="notPriority"
+                name="priority"
+                value="Not Priority"
+                checked={(isAdding ? newTransaction.priorityList : editingTransaction?.priorityList) === "Not Priority"}
+                onChange={() => handlePriorityChange("Not Priority")}
+                className="priority-radio"
+              />
+              <label htmlFor="notPriority">Not Priority</label>
             </div>
-            <div className="buttonContainer">
-              <button className="addButton1" onClick={handleAddTransaction}>
-                Add
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {isEditing && (
-        <div className="modal">
-          <div className="modalContent">
-            <div className="modalHeader">
-              <h2 className="modalTitle">Edit Transaction</h2>
-              <button className="closeButton" onClick={handleCancel}>
-                <FaTimes />
-              </button>
-            </div>
-            <input
-              type="text"
-              name="name"
-              value={editingTransaction.name}
-              onChange={handleInputChange}
-              className="input"
-            />
-            <input
-              type="text"
-              name="dateCreated"
-              value={editingTransaction.dateCreated}
-              onChange={handleInputChange}
-              className="input"
-            />
-            <div className="priority">
-              <label style={{ fontSize: "16px" }}>Priority Status:</label>
+            <div className="modal-buttons">
               <button
-                className={
-                  editingTransaction.priorityList === "High"
-                    ? "priorityButtonActive"
-                    : "priorityButton"
-                }
-                onClick={() => handlePriorityChange("High")}
+                className="save-button"
+                onClick={isAdding ? handleAddTransaction : handleSaveEdit}
               >
-                High
+                {isAdding ? "Add" : "Save"}
               </button>
               <button
-                className={
-                  editingTransaction.priorityList === "Low"
-                    ? "priorityButtonActive"
-                    : "priorityButton"
-                }
-                onClick={() => handlePriorityChange("Low")}
+                className="clear-button"
+                onClick={handleClearFields}
               >
-                Low
+                Clear
               </button>
             </div>
-            <button className="saveButton" onClick={handleSaveEdit}>
-              Save Changes
-            </button>
           </div>
         </div>
       )}
