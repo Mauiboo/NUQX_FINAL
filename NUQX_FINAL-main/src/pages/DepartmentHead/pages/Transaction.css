@@ -1,0 +1,230 @@
+.container {
+  padding: 2rem;
+  margin: 10rem 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  position: relative;
+  margin-left: 359px;
+  margin-top: 200px;
+  position: fixed;
+}
+
+.addButton {
+  background-color: transparent;
+  color: #35408E;
+  padding: 15px 25px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  margin-top: -50px;
+  margin-left: -20px;
+  font-size: 2rem; 
+}
+
+.addButton1 {
+  background-color: #35408E;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex; 
+ 
+  justify-content: center; 
+  align-items: center; 
+  height: 40px;
+  width: 80px;
+}
+
+.transactionContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  column-gap: 200px; 
+  row-gap: 20px; 
+  justify-content: center;  
+  margin-left: 10px;
+}
+
+.transactionCard {
+  width: 200%; 
+  height: 320px; 
+  max-width: 350px; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  border: 1px solid #35408E;
+  border-radius: 8px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 39px;
+  margin-bottom: 10px;
+
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle label:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle input:checked + label {
+  background-color: #35408E;
+}
+
+.toggle input:focus + label {
+  box-shadow: 0 0 1px #35408E;
+}
+
+.toggle input:checked + label:before {
+  transform: translateX(26px);
+}
+
+.editButton {
+  background-color: #35408E;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  position: relative;
+  left: 200px;
+  width: 80px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modalTitle {
+  font-size: 22px;
+  font-weight: bold;
+  flex-shrink: 0;
+  
+}
+
+.closeButton {
+  background: transparent; 
+  border: none;
+  font-size: 19px;
+  cursor: pointer;
+  color: #35408E; 
+  position: relative;
+  margin-left: 150px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.priority {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.priority label {
+  margin-right: 10px;
+}
+
+.priorityButton {
+  background-color: #ddd;
+  color: black;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  height: 40px;
+  width: 80px;
+}
+
+.priorityButtonActive {
+  background-color: #35408E;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  height: 40px;
+  width: 80px;
+}
+
+.saveButton {
+  background-color: #35408E;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 130px;
+  height: 40px;
+}
