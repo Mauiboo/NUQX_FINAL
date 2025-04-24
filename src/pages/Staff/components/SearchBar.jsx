@@ -4,6 +4,13 @@ import './searchBar.css';
 function SearchBar() {
     return (
       <div className="search-bar">
+         <style>
+        {`
+          .search-input::placeholder {
+            color: black;
+          }
+        `}
+      </style>
         <form
           className="search-form d-flex align-items-center justify-content-between"
           method="POST"

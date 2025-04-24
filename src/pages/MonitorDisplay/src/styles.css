@@ -45,7 +45,7 @@ body, html {
   align-items: center;
 }
 
-.logo {
+.logo-image {
   height: 80px;
   margin-right: 10px;
 }
@@ -72,10 +72,12 @@ body, html {
 }
 
 .main-content {
-  flex: 1;
   background-color: white;
   display: flex;
   padding: 20px;
+  width: 100%;                 
+  max-width: 1200px;           
+  box-sizing: border-box;
 }
 
 .queue-container {

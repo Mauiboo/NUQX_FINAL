@@ -154,7 +154,10 @@ button:hover {
   background-color: #FFD41C;
   height: 8px;
   width: 100%;
-  position: relative; 
-  top: -70px; 
+  position: absolute !important;
+  bottom: 70 !important;
+  left: 0;
+  z-index: 99;
 }
+
 

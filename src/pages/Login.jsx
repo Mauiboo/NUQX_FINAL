@@ -17,7 +17,7 @@ const Login = () => {
     } else if (email === "student_guest@kiosk.national-u.edu.ph" && password === "1234") {
       navigate("/kiosk");
     } else if (email === "monitor@display.national-u.edu.ph" && password === "1234") {
-      navigate("/monitordisplay");
+      navigate("/monitordisplay/MonitorDisplay");
     } else if (email === "petrovak@departmenthead.national-u.edu.ph" && password === "1234") {
       navigate("/departmenthead/dashboard");
     } else {
@@ -69,7 +69,7 @@ const Login = () => {
       left: 0,
       width: "100%",
       backgroundColor: "#35408E",
-      height: "70px",
+      height: "75px",
     },
     mainContent: {
       margin: '0 auto',
@@ -190,7 +190,18 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="yellow-line1"></div>
+      <div className="yellow-line2"
+       style={{
+        backgroundColor: "#FFD41C",
+        height: "8px",
+        width: "100%",
+        position: "absolute",
+        bottom: 70,
+        left: 0,
+        zIndex: 99
+  }}
+      
+      ></div>
       <footer style={styles.footer}></footer>
     </div>
   );

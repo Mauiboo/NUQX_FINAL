@@ -10,19 +10,57 @@ function QueueNum() {
     navigate('/kiosk'); 
   };
 
+  const styles = {
+    header: {
+      backgroundColor: "#35408E",
+      height: "80px",
+      display: "flex",
+      alignItems: "center",
+      padding: "0 20px",
+    },
+    logoContainer: {
+      display: "flex",
+      alignItems: "center",
+    },
+    logo: {
+      height: "90px",
+      marginRight: "10px",
+    },
+    headerTitle: {
+      color: "#FFFFFF",
+      fontSize: "35px",
+      fontFamily: "'ClanOT Medium', sans-serif",
+    },
+    yellowLine: {
+      backgroundColor: "#FFD41C",
+      height: "8px",
+      width: "100%",
+    },
+    footer: {
+      position: "fixed",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+      backgroundColor: "#35408E",
+      height: "75px",
+    },
+  };
+
   return (
-    <div className="page-container">
+    <div className="page-container" style={{ overflow: 'hidden', position: 'fixed', width: '100%', height: '100vh' }}>
       {/* Header */}
-      <header className="header" style={{ height: '80px' }}>
-          <div className="logo-container">
-          <img src={Logo} alt="Logo" className="logo-image" />
-          <span className="header-title">NUQX</span>
+      <header style={styles.header}>
+        <div style={styles.logoContainer}>
+          <img src={Logo} alt="Logo" style={styles.logo} />
+          <span style={styles.headerTitle}>NUQX</span>
         </div>
       </header>
-      <div className="yellow-line"></div>
 
-    {/* Queue Number Content */}
-    <div style={{
+      {/* Yellow line */}
+      <div style={styles.yellowLine}></div>
+
+      {/* Queue Number Content */}
+      <div style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -34,7 +72,7 @@ function QueueNum() {
         <h1 style={{
           fontSize: '40px',
           color: '#333',
-          marginBottom: '70px' 
+          marginBottom: '70px'
         }}>Thank you for using NUQX!</h1>
 
         <div style={{
@@ -43,12 +81,12 @@ function QueueNum() {
           borderRadius: '12px',
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
           textAlign: 'center',
-          marginBottom: '70px' 
+          marginBottom: '70px'
         }}>
           <p style={{
             fontSize: '50px',
             color: '#333',
-            marginBottom: '0px' 
+            marginBottom: '0px'
           }}>Your Ticket Number Is</p>
           <p style={{
             fontSize: '90px',
@@ -62,7 +100,7 @@ function QueueNum() {
           color: 'white',
           padding: '10px 40px',
           border: 'none',
-          borderRadius: '4px',
+          borderRadius: '25px',
           fontSize: '24px',
           cursor: 'pointer',
           width: '200px'
@@ -74,8 +112,21 @@ function QueueNum() {
         </button>
       </div>
 
-      <div className="yellow-line1"></div>
-      <footer className="footer"></footer>
+      {/* Bottom Yellow Line */}
+      <div
+        style={{
+          height: "8px",
+          backgroundColor: "#FFD41C",
+          position: "absolute",
+          bottom: "70px",
+          left: "0",
+          width: "100%",
+          zIndex: 99
+        }}
+      ></div>
+
+      {/* Footer */}
+      <footer style={styles.footer}></footer>
     </div>
   );
 }

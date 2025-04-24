@@ -51,7 +51,7 @@ function HomePage() {
       left: 0,
       width: "100%",
       backgroundColor: "#35408E",
-      height: "70px",
+      height: "75px",
     },
     p1: {
       fontSize: "200px",
@@ -135,7 +135,18 @@ function HomePage() {
         </button>
       </div>
 
-      <div className="yellow-line1"></div>
+      <div
+          className="yellow-line3"
+          style={{
+            backgroundColor: "#FFD41C",
+            height: "8px",
+            width: "100%",
+            position: "absolute",
+            bottom: 70,
+            left: 0,
+            zIndex: 99
+      }}
+    ></div>
       <footer style={styles.footer}></footer>
     </div>
   );
